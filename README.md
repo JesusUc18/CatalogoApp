@@ -34,6 +34,27 @@ El objetivo no es solamente que la aplicación funcione, sino entender por qué 
 
 ---
 
+## 📸 Capturas de Pantalla
+
+Inicio:
+<img width="1920" height="1032" alt="image" src="https://github.com/user-attachments/assets/cafb246b-6488-4f69-8aad-84899ddab09d" />
+
+Iniciar Sesión:
+<img width="1920" height="1032" alt="image" src="https://github.com/user-attachments/assets/babd1e98-0cd2-49d0-97f9-4cfbf9326079" />
+
+Agregar videojuego:
+<img width="1920" height="1032" alt="image" src="https://github.com/user-attachments/assets/f14c90bd-1fc1-4693-a486-ce0ae8cee7c9" />
+
+Reseñas:
+<img width="1920" height="1032" alt="image" src="https://github.com/user-attachments/assets/eb3a74fc-df33-40c3-8e64-13550a49c7b7" />
+
+Reseñas (sin sesión iniciada):
+<img width="1920" height="1032" alt="image" src="https://github.com/user-attachments/assets/4c07ea9a-f0e4-4d15-9d0b-1e8c9d0c7727" />
+
+
+
+---
+
 ## 📁 Estructura del proyecto
 
 ```
