@@ -21,6 +21,64 @@ El objetivo no es solamente que la aplicación funcione, sino entender por qué 
 
 ---
 
+## 📌 Características
+
+- Catálogo de videojuegos con filtro por género.
+- Sistema de registro e inicio de sesión de usuarios.
+- Contraseñas hasheadas con SHA256.
+- Reseñas con calificación de estrellas (1-5).
+- **Restricción:** solo usuarios logueados pueden agregar juegos o reseñas.
+- Persistencia de datos en archivos JSON.
+- Arquitectura en 4 capas (Domain, Application, Infrastructure, Presentation).
+- Tema visual oscuro estilo gaming.
+
+---
+
+## 📁 Estructura del proyecto
+
+```
+CatalogoApp/
+├─ CatalogoApp.Domain/
+│  ├─ Models/
+│  │  ├─ Item.cs
+│  │  ├─ Usuario.cs
+│  │  ├─ Resena.cs
+│  │  └─ ErrorViewModel.cs
+│  └─ Interfaces/
+│     └─ IItemRepository.cs
+│
+├─ CatalogoApp.Application/
+│  └─ Services/
+│     └─ ItemService.cs
+│
+├─ CatalogoApp.Infrastructure/
+│  └─ Repositories/
+│     ├─ JsonItemRepository.cs
+│     ├─ JsonUsuarioRepository.cs
+│     └─ JsonResenaRepository.cs
+│
+└─ CatalogoApp.Presentation/
+   ├─ Controllers/
+   │  ├─ CatalogoController.cs
+   │  ├─ UsuarioController.cs
+   │  └─ ResenaController.cs
+   ├─ Views/
+   │  ├─ Catalogo/
+   │  │  ├─ Index.cshtml
+   │  │  ├─ Detalle.cshtml
+   │  │  └─ Agregar.cshtml
+   ├─ Usuario/
+   │  ├─ Login.cshtml
+   │  └─ Registro.cshtml
+   ├─ Data/
+   │  ├─ items.json
+   │  ├─ usuarios.json
+   │  └─ resenas.json
+   └─ Program.cs
+```
+
+---
+
 ## 🤝 Agradecimientos
 
 - **Profesor Jorge Javier Pedrozo Romero** por la estructura del curso y la práctica
