@@ -1,0 +1,14 @@
+[
+  {
+    "Id": 1,
+    "NombreUsuario": "Jesus Uc",
+    "PasswordHash": "b78f9f2e3c37a7ea8ac96257260b15ec9e24617af877a6ca5f9085420881c7f9",
+    "Email": "jesus.uc@tecdesoftware.edu.mx"
+  },
+  {
+    "Id": 2,
+    "NombreUsuario": "\u00C1ngela Rojas",
+    "PasswordHash": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+    "Email": "angela.gogo@hotmail.com"
+  }
+]
