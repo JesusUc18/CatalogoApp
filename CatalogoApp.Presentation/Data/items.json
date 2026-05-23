@@ -1,10 +1,29 @@
-﻿[
+[
   {
     "Id": 1,
     "Titulo": "Devil May Cry",
     "Genero": "Hack and Slash",
     "Consola": "PlayStation 2",
     "Ano": 2001,
-    "Descripcion": "Dante, cazador de demonios, enfrenta a Mundus."
+    "Descripcion": "Dante, cazador de demonios, enfrenta a Mundus.",
+    "ImagenUrl": "https://m.media-amazon.com/images/I/71zPm7owg-L._AC_UF1000,1000_QL80_.jpg"
+  },
+  {
+    "Id": 2,
+    "Titulo": "BrawlStars",
+    "Genero": "Disparos",
+    "Consola": "Moviles",
+    "Ano": 2018,
+    "Descripcion": "Brawl Stars es un videojuego m\u00F3vil de acci\u00F3n multijugador gratuito, desarrollado por Supercell y lanzado globalmente en 2018. Combina elementos de disparos en tercera persona, arenas de batalla en l\u00EDnea (MOBA) y juegos de lucha en partidas r\u00E1pidas e intensas que duran menos de tres minutos.",
+    "ImagenUrl": "https://i.scdn.co/image/ab6761610000e5ebf7b952107c126c561c52171e"
+  },
+  {
+    "Id": 3,
+    "Titulo": "Cuphead",
+    "Genero": "Plataformas",
+    "Consola": "Xbox One",
+    "Ano": 2017,
+    "Descripcion": "Cuphead es una taza animada de los a\u00F1os 30, impulsiva y valiente, que viste pantalones rojos y guantes amarillos. Tras perder su alma apostando con el Diablo, lucha disparando r\u00E1fagas de energ\u00EDa con sus dedos para saldar su deuda.",
+    "ImagenUrl": "https://upload.wikimedia.org/wikipedia/en/e/eb/Cuphead_%28artwork%29.png"
   }
 ]

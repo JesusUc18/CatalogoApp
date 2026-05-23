@@ -8,6 +8,11 @@
 
 <!-- Detalle del juego -->
 <div class="detalle-card">
+    @if (!string.IsNullOrEmpty(Model.ImagenUrl))
+    {
+        <img src="@Model.ImagenUrl" alt="@Model.Titulo"
+             style="width:100%;max-height:320px;object-fit:cover;border-radius:10px;margin-bottom:1.2rem;" />
+    }
     <h1>@Model.Titulo</h1>
     <div class="detalle-meta">
         <span><strong>Género:</strong> @Model.Genero</span>

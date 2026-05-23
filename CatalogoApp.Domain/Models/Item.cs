@@ -8,5 +8,6 @@
         public string Consola { get; set; } = string.Empty;
         public int Ano { get; set; }
         public string Descripcion { get; set; } = string.Empty;
+        public string ImagenUrl { get; set; } = string.Empty;
     }
 }

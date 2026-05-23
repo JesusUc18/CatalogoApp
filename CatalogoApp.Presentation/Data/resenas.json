@@ -6,5 +6,13 @@
     "Calificacion": 3,
     "Comentario": "Buen juego \uD83D\uDC4D",
     "FechaCreacion": "2026-05-22T19:47:39.9898997-06:00"
+  },
+  {
+    "Id": 2,
+    "ItemId": 3,
+    "NombreUsuario": "Jesus Uc",
+    "Calificacion": 5,
+    "Comentario": "AMO ESTE JUEGO \uD83D\uDC95",
+    "FechaCreacion": "2026-05-22T20:51:42.6804005-06:00"
   }
 ]

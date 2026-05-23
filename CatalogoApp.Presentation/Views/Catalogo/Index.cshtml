@@ -44,6 +44,13 @@ else
         @foreach (var item in Model)
         {
             <div class="juego-card">
+                @if (!string.IsNullOrEmpty(item.ImagenUrl))
+                {
+                    <a asp-action="Detalle" asp-route-id="@item.Id">
+                        <img src="@item.ImagenUrl" alt="@item.Titulo"
+                             style="width:100%;height:auto;object-fit:contain;border-radius:8px;margin-bottom:0.8rem;" />
+                    </a>
+                }
                 <h3><a asp-action="Detalle" asp-route-id="@item.Id">@item.Titulo</a></h3>
                 <div class="juego-meta">
                     <span class="badge-genero">@item.Genero</span>
