@@ -79,6 +79,31 @@ CatalogoApp/
 
 ---
 
+
+## 🔐 Restricciones de acceso
+
+| Acción              | Sin sesión | Con sesión |
+|---------------------|:----------:|:----------:|
+| Ver catálogo        | ✅         | ✅         |
+| Ver detalle         | ✅         | ✅         |
+| Agregar videojuego  | ❌         | ✅         |
+| Escribir reseña     | ❌         | ✅         |
+
+---
+
+## 🛠️ Tecnologías utilizadas
+
+- **C#**
+- **.NET 10.0**
+- **ASP.NET Core MVC**
+- **Razor Views**
+- **Bootstrap 5**
+- **JSON** como base de datos ligera
+- **Arquitectura en Capas**
+- **Principios SOLID**
+
+---
+
 ## 🤝 Agradecimientos
 
 - **Profesor Jorge Javier Pedrozo Romero** por la estructura del curso y la práctica
