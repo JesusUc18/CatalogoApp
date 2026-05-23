@@ -1,4 +1,6 @@
-﻿using CatalogoApp.Domain.Models;
+﻿using CatalogoApp.Application.Services;
+using CatalogoApp.Domain.Models;
+using CatalogoApp.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Catalogo.Controllers
@@ -7,69 +9,60 @@ namespace Catalogo.Controllers
     {
         /* CatalogoController
          * ==================
-         * 
-         * Controlador encargado de gestionar el flujo de datos
-         * del catálogo de videojuegos.
-         * 
-         * Su función es recibir las peticiones del usuario,
-         * consultar la lista de items y devolver la vista
-         * correspondiente.
+         * Gestiona el catálogo de videojuegos.
+         * - Ver catálogo: cualquier usuario.
+         * - Agregar videojuego: solo usuarios logueados.
          * * * * */
 
-        private static List<Item> _items = new()
+        private readonly ItemService _itemService;
+        private readonly JsonResenaRepository _resenaRepo;
+
+        public CatalogoController(ItemService itemService, JsonResenaRepository resenaRepo)
         {
-            new Item {
-                Id          = 1,
-                Titulo      = "Devil May Cry",
-                Genero      = "Hack and Slash",
-                Ano         = 2001,
-                Consola     = "PlayStation 2",
-                Descripcion = "Videojuego que trata de un cazador mitad humano mitad demonio que debe evitar el regreso del rey del infierno."
-            },
-            new Item {
-                Id          = 2,
-                Titulo      = "Castlevania: Symphony of the Night",
-                Genero      = "Metroidvania",
-                Ano         = 1997,
-                Consola     = "PlayStation 2",
-                Descripcion = "Videojuego que trata de un cazador vampiro que debe detener a su padre, el conde Drácula."
-            },
-            new Item {
-                Id          = 3,
-                Titulo      = "NieR: Automata",
-                Genero      = "Acción-RPG",
-                Ano         = 2017,
-                Consola     = "PlayStation 4",
-                Descripcion = "Videojuego que trata de unos androides de batalla que deben detener a las máquinas alienígenas."
-            }
-        };
+            _itemService = itemService;
+            _resenaRepo = resenaRepo;
+        }
+
         public IActionResult Index(string? genero)
         {
+            var todos = _itemService.ObtenerTodos();
             var resultado = string.IsNullOrEmpty(genero)
-                ? _items
-                : _items.Where(i => i.Genero == genero).ToList();
+                ? todos
+                : todos.Where(i => i.Genero == genero).ToList();
 
-            ViewBag.Generos = _items.Select(i => i.Genero).Distinct().ToList();
+            ViewBag.Generos = _itemService.ObtenerGeneros();
             ViewBag.GeneroActual = genero;
+            ViewBag.UsuarioLogueado = HttpContext.Session.GetString("UsuarioLogueado");
             return View(resultado);
         }
 
         public IActionResult Detalle(int id)
         {
-            var item = _items.FirstOrDefault(i => i.Id == id);
-            return item == null ? NotFound() : View(item);
+            var item = _itemService.ObtenerPorId(id);
+            if (item == null) return NotFound();
+
+            ViewBag.Resenas = _resenaRepo.ObtenerPorItem(id);
+            ViewBag.UsuarioLogueado = HttpContext.Session.GetString("UsuarioLogueado");
+            return View(item);
         }
 
+        // GET: Solo logueados
         public IActionResult Agregar()
         {
+            if (HttpContext.Session.GetString("UsuarioLogueado") == null)
+                return RedirectToAction("Login", "Usuario",
+                    new { returnUrl = Url.Action("Agregar", "Catalogo") });
             return View();
         }
 
+        // POST: Solo logueados
         [HttpPost]
         public IActionResult Agregar(Item item)
         {
-            item.Id = _items.Count + 1;
-            _items.Add(item);
+            if (HttpContext.Session.GetString("UsuarioLogueado") == null)
+                return RedirectToAction("Login", "Usuario");
+
+            _itemService.Agregar(item);
             return RedirectToAction("Index");
         }
     }
